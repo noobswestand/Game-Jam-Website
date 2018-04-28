@@ -1,0 +1,45 @@
+Use LUGameJam;
+DROP TABLE IF EXISTS PersonGame;
+DROP TABLE IF EXISTS Person;
+DROP TABLE IF EXISTS Picture;
+DROP TABLE IF EXISTS Game;
+DROP TABLE IF EXISTS Jams;
+
+
+CREATE TABLE Jam(
+	JamID		int unsigned	NOT NULL auto_increment,
+	Theme		nvarchar(255)	NOT NULL,
+	StartDate	date		NOT NULL,
+	EndDate		date		NOT NULL,
+	PRIMARY KEY (PersonID)
+);
+
+CREATE TABLE Person(
+	PersonID	int unsigned	NOT NULL auto_increment,
+	FirstName	nvarchar(255)	NOT NULL,
+	LastName	nvarchar(255)	NOT NULL,
+	PRIMARY KEY (PersonID)
+);
+CREATE TABLE Game(
+	GameID		int unsigned	NOT NULL auto_increment,
+	GameName	nvarchar(255)	NOT NULL,
+	JamID		int unsigned	NOT NULL,
+	Notes		text,
+	Place		int,
+	PRIMARY KEY (PersonID),
+	FOREIGN KEY (JamID) REFERENCES Jams(JamID)
+);
+CREATE TABLE PersonGame(
+	PersonID	int unsigned	NOT NULL,
+	GameID		int unsigned	NOT NULL,
+	FOREIGN KEY (PersonID) REFERENCES Person(PersonID),
+	FOREIGN KEY (GameID) REFERENCES Game(GameID)
+);
+CREATE TABLE Picture(
+	PictureID	int unsigned	NOT NULL auto_increment,
+	GameID		int unsigned	NOT NULL,
+	Picture		varchar(255),
+	Description	text,
+	PRIMARY KEY (PictureID),
+	FOREIGN KEY (GameID) REFERENCES Game(GameID)
+);

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lakeland Game Jam</title>
+	<link rel="stylesheet" href="main.css">
+	
+	<link rel="icon" 
+      type="image/png" 
+      href="pictures/favicon.png">
+</head>
+
+<body>
+	<!--Header-->
+	<div class="header">
+	<!--<h1><br>Lakeland University Game Jam</br><br></h1>-->
+	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920px" height="1080px" preserveAspectRatio="xMidYMid slice" style="z-index:2;">
+	  <defs>
+		<mask id="mask" x="0" y="0" width="1920" height="1080" >
+		  <rect x="0" y="0" width="1920" height="1080"/>
+		  <text x="30%" y="55%">Lakeland</text>
+		  <text x="70%" y="55%">Game Jam</text>
+		</mask>
+	  </defs>
+	  <rect x="0" y="0" width="1920" height="1080"/>
+	</svg>
+	
+	<div class="videoContainer">
+		<div class="overlay"></div>
+		<img id="video" src="pictures/mainBack.png"></imgs>
+		<!--
+		<video id="video" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+			<source src="videos/2.mp4" type="video/mp4">
+		</video>
+		-->
+	</div>
+	</div>
+	
+	
+	
+	<!--Header Buttons-->
+	<script>
+		function reset(){
+			document.getElementById("headButton0").style.backgroundColor ="#ddd";
+			document.getElementById("headButton1").style.backgroundColor ="#ddd";
+			document.getElementById("headButton2").style.backgroundColor ="#ddd";
+			document.getElementById("headButtonDiv0").style.display = "none";
+			document.getElementById("headButtonDiv1").style.display = "none";
+			document.getElementById("headButtonDiv2").style.display = "none";
+		}
+		
+		function showRules(){
+			reset();
+			document.getElementById("headButton0").style.backgroundColor ="#3267bc";
+			document.getElementById("headButtonDiv0").style.display = "block";
+		}
+		function showArchive(){
+			reset();
+			document.getElementById("headButton1").style.backgroundColor ="#3267bc";
+			document.getElementById("headButtonDiv1").style.display = "block";
+		}
+		function showTools(){
+			reset();
+			document.getElementById("headButton2").style.backgroundColor ="#3267bc";
+			document.getElementById("headButtonDiv2").style.display = "block";
+		}
+	</script>
+	<div class="headButtonContainer" align="center">
+		<div id="headButton0" class="headButton" onclick="showRules()">
+			<p>Rules</p>
+		</div>
+		<div id="headButton1" class="headButton" onclick="showArchive()">
+			<p>Archive</p>
+		</div>
+		<div id="headButton2" class="headButton" onclick="showTools()">
+			<p>Tools</p>
+		</div>
+	</div>
+	
+	<!--Body-->
+	<div class="body" id="headButtonDiv0">
+		<br><h2><b>Rules</b></h2><br>
+		<div style="position: absolute; left: 50%; z-index:3;">
+			<div style="position: relative; left: -50%;">
+				<p>Welcome to the Game Jam!<br>
+				A game jam is a competition where you have a set amount of time to make a game based on a theme/set of rules/restrictions.
+				</p>
+				
+				<p>You have <strong>21</strong> days to put together a game based off of whatever you like. Extra points for the theme:</p>
+				<p id="theme"><strong></strong></p>
+				
+				<script>
+					function httpGet(theUrl){
+						var xmlHttp = new XMLHttpRequest();
+						xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+						xmlHttp.send( null );
+						return xmlHttp.responseText;
+					}
+					document.getElementById("theme").innerHTML = httpGet("theme.php");//"_ _ _ _ _ _ _";
+				</script>
+				
+				<p><strong>The Jam will be capped by a pizza party for all entrants!</strong></p>
+				<p>If you do not know how to begin creating games, check out the resourse tab found <a href="#" onclick="showTools()">here</a></p>
+				<br>
+				<p><strong>Voting</strong></p>
+				<ul>
+					<li>Theme
+					<ul>
+						<li>How well the game fits the theme</li>
+					</ul></li>
+					<li>Concept
+					<ul>
+						<li>The originality and how well the game is put together</li>
+						<li>This could be how well the game plays, and game feel</li>
+					</ul></li>
+					<li>Presentation
+					<ul>
+						<li>Art, Music, Sound effects</li>
+					</ul>
+					</li>
+					<li>Story
+					<ul>
+						<li>How interesting the story is. Does it fit?</li>
+					</ul></li>
+				</ul>
+				<p><strong>Prizes</strong></p>
+				<ul>
+					<li>Your game will be featured on the front page of this website until the next game jam</li>
+					<li></li>
+					<li>If you want to contribute a prize, please email me: <a href="mailto:djk164@yahoo.com">djk164@yahoo.com</a></li>
+				</ul>
+				
+				<p><strong>Submit</strong></p>
+				<p>Please emails your games to <a href="mailto:djk164@yahoo.com">djk164@yahoo.com</a></p>
+				<br><br><br><br>
+			</div>
+		</div>
+	</div>
+	<div class="body" id="headButtonDiv1">
+		<br><h2>Arhive</h2>
+	</div>
+	<div class="body" id="headButtonDiv2">
+		<br>
+		<h2>Tools/Assistance</h2>
+		<table style="width:100%">
+		<tr>
+			<th><h2>Engines</h2></th>
+		</tr>
+		<!--Unity-->
+		<tr>
+			<td>
+				<div class="tools unity">
+					<p class="toolsText unity">Unity</p>
+					<img src="pictures/unity.png" style="visibility: hidden;" />
+				</div>
+				<table style="width:100%">
+				<tr>
+					<th>Download</th>
+					<th>Tutorials</th>
+					<th>Assets</th>
+				</tr>
+				<tr>
+					<td><a target="_blank" href="https://store.unity.com/download?ref=personal">Personal Download</a></td>
+					<td>
+						<a target="_blank" href="https://www.amazon.com/Unity-Development-Hours-Teach-Yourself/dp/0672336960">
+							Unity Game Development in 24 Hours
+						</a><br>
+						<a target="_blank" href="https://www.youtube.com/watch?v=Ep0rlBQRcVc">
+							Basics
+						</a><br>
+						<a target="_blank" href="https://www.youtube.com/watch?v=qwuPiaFU37w">
+							C# Coding
+						</a>
+					</td>
+					<td><a target="_blank" href="https://assetstore.unity.com/">Asset Store</a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<!--GM-->
+		<tr>
+			<td>
+				<div class="tools gm">
+					<p class="toolsText gm">Game Maker</p>
+					<img src="pictures/gm.png" style="visibility: hidden;" />
+				</div>
+				<table style="width:100%">
+				<tr>
+					<th>Download</th>
+					<th>Tutorials</th>
+					<th>Assets</th>
+				</tr>
+				<tr>
+					<td><a target="_blank" href="https://www.yoyogames.com/get">Download</a></td>
+					<td>
+						<a target="_blank" href="https://www.youtube.com/watch?v=cEb4gzG8S24">
+							Your First Game
+						</a><br>
+						<a target="_blank" href="https://www.youtube.com/watch?v=ubvrKQlI_1A">
+							Basics
+						</a><br>
+					</td>
+					<td><a target="_blank" href="https://marketplace.yoyogames.com/">Marketplace</a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<!--Unreal-->
+		<tr>
+			
+			<td>
+				<div class="tools unreal">
+					<p class="toolsText unreal">Unreal Engine</p>
+					<img src="pictures/unreal.png" style="visibility: hidden;" />
+				</div>
+				<table style="width:100%">
+				<tr>
+					<th>Download</th>
+					<th>Tutorials</th>
+					<th>Assets</th>
+				</tr>
+				<tr>
+					<td><a target="_blank" href="https://www.unrealengine.com/download">Download</a></td>
+					<td>
+						<a target="_blank" href="https://www.youtube.com/watch?v=R--jTs94Yrw">
+							Basics
+						</a><br>
+						<a target="_blank" href="https://www.youtube.com/watch?v=a0qNO6_xPx0">
+							Training
+						</a><br>
+					</td>
+					<td><a target="_blank" href="https://www.unrealengine.com/marketplace">Marketplace</a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<th><h2>Art</h2></th>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="https://opengameart.org/">Open Game Art</a> - OpenGameArt.org - collection of a wide variety of graphics contributed by talented artists
+				<br>
+				<a target="_blank" href="https://www.aseprite.org/">Aseprite</a> - for creating pixel art and animations
+				<br>
+				<a target="_blank" href="https://www.blender.org/">Blender</a> - for creating 3D graphics
+				<br>
+				<a target="_blank" href="https://www.gimp.org/">GIMP</a> - a general purpose image editor, similar to Photoshop but simpler and free
+				<br>
+				<a target="_blank" href="https://inkscape.org/en/">Inkscape</a> - for creating vector graphics
+			</td>
+		</tr>
+		
+		<tr>
+			<th><h2>Sound</h2></th>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="https://www.bfxr.net/">Bfxr</a> - a sound effect generator<br>
+				<a target="_blank" href="http://soundbible.com/">Sound Bible</a> - a collection of free sound effects<br>
+				<a target="_blank" href="https://freesound.org/browse/tags/sound-effects/">Free Sound</a> - a collection of free sound effects<br>
+				<a target="_blank" href="http://famitracker.com/">FamiTracker</a> - for NES/Famicom systems music<br>
+				<a target="_blank" href="https://lmms.io/">LMMS</a><br>
+			</td>
+		</tr>
+		
+		
+		
+		</table>
+	</div>
+	
+	<script>showArchive();</script>
+	<!--Footer-->
+	<div class="footer">
+		<p>Created by Daniel Koerber and Nicholas Koerber: <a target="_blank" href="https://github.com/noobswestand">GitHub</a>
+		</p>
+	</div>
+</body>
+</html> 

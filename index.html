@@ -1,0 +1,116 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Lakeland Game Jam</title>
+	<link rel="icon" 
+      type="image/png" 
+      href="pictures/favicon.png">
+</head>
+
+
+<script>
+
+	 function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	
+	var images = [], x =0;
+	for (i = 0; i <=9; i++) {
+		var ii=i.toString();
+		images[i] = "videos/"+ii+".mp4";
+	}
+	function displayNextImage() {
+		  x = (x === images.length - 1) ? 0 : x + 1;
+		  document.getElementById("video").src = images[x];
+	  }
+	function startTimer() {
+		x = getRandomInt(0,images.length-1);
+		document.getElementById("video").src = images[x];
+		setInterval(displayNextImage, 7000);
+	  }
+	 
+</script>
+
+<body onload = "startTimer()">
+	
+	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920px" height="1080px" preserveAspectRatio="xMidYMid slice" style="z-index:2;">
+	  <defs>
+		<mask id="mask" x="0" y="0" width="1920" height="1080" >
+		  <rect x="0" y="0" width="1920" height="1080"/>
+		  <text x="960" y="45%">Lakeland</text>
+		  <text x="960" y="57%">Game Jam</text>
+			
+			<text x="960" y="25%" id="theme"></text>
+			<script>
+				function httpGet(theUrl){
+					var xmlHttp = new XMLHttpRequest();
+					xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+					xmlHttp.send( null );
+					return xmlHttp.responseText;
+				}
+				document.getElementById("theme").innerHTML = httpGet("theme.php");//"_ _ _ _ _ _ _";
+			</script>
+			
+			
+			<text x="960" y="15%" id="countdown"></text>
+			<script>
+			// Set the date we're counting down to
+			var countDownDate = new Date("Apr 16, 2018 00:00:00").getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			  // Get todays date and time
+			  var now = new Date().getTime();
+
+			  // Find the distance between now an the count down date
+			  var distance = countDownDate - now;
+
+			  // Time calculations for days, hours, minutes and seconds
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			  // Display the result in the element with id="countdown"
+			  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+			  + minutes + "m " + seconds + "s ";
+
+			  // If the count down is finished, write some text 
+			  if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "EXPIRED";
+			  }
+			}, 1000);
+			</script>
+			
+		</mask>
+	  </defs>
+	  <rect x="0" y="0" width="1920" height="1080"/>
+	</svg>
+	
+	
+	<div style="position: absolute; left: 50%;top:65%; z-index:3;">
+		<div style="position: relative; left: -50%;">
+			<a href="main.html" id="button">Continue to site</a>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="videoContainer">
+		<div class="overlay"></div>
+		
+		<video id="video" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+			<source src="#" type="video/mp4">
+		</video>
+	</div>
+
+	
+
+</body>
+
+</html>

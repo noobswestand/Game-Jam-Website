@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lakeland Game Jam</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="w3.css">
+	<link rel="stylesheet" href="style2.css">
+	
+	<link rel="icon" 
+      type="image/png" 
+      href="pictures/favicon.png">
+</head>
+
+<body>
+	<div id="page-bg"><div id="page-bg-img"></div></div>
+	
+	<div class="w3-container">
+	  <h1>Lakeland University Game Jam Archive</h1>
+	  <p>A collection of games by students of Lakeland</p>
+	</div>
+	<div style="position: absolute; left: 50%;">
+	<div style="position: relative; left: -50%;">
+		<div class="w3-content w3-display-container">
+		
+			<div class="w3-display-container mySlides">
+			  <img src="pictures/1.jpg" style="width:640px;height:480px">
+			  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+				Game Jam Rules
+			  </div>
+			</div>
+
+		
+			<div class="w3-display-container mySlides">
+			  <img src="pictures/2.jpg" style="width:640px;height:480px">
+			  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+				Previous Game Jams
+			  </div>
+			</div>
+	
+		
+			<div class="w3-display-container mySlides">
+			  <img src="pictures/3.jpg" style="width:640px;height:480px">
+			  <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
+				Game Making resources
+		  </div>
+		  </div>
+			  
+		</div>
+	
+	<div style="position: relative;top:53%;">
+		<div class="w3-content w3-display-container" style="max-width:800px">
+		  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+			<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+			<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+			<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+			<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+			<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+		  </div>
+		</div>
+	</div>
+	
+	</div>
+	</div>
+	<script>
+	var slideIndex = 1;
+	showDivs(slideIndex);
+
+	function plusDivs(n) {
+	  showDivs(slideIndex += n);
+	}
+
+	function currentDiv(n) {
+	  showDivs(slideIndex = n);
+	}
+
+	function showDivs(n) {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("demo");
+	  if (n > x.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = x.length}
+	  for (i = 0; i < x.length; i++) {
+		 x[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		 dots[i].className = dots[i].className.replace(" w3-white", "");
+	  }
+	  x[slideIndex-1].style.display = "block";
+	  dots[slideIndex-1].className += " w3-white";
+	  
+	  //document.getElementById("page-bg-img").style.webkitAnimationPlayState = "paused";
+	  document.getElementById("page-bg-img").style.WebkitAnimation = "fadeout 2s;";
+	  
+	  
+	  if (slideIndex-1==2){
+		document.getElementById("page-bg-img").style.webkitAnimationPlayState = "running";
+		//document.getElementById("page-bg-img").style.WebkitAnimation = "fadein 2s;";
+	  }
+	  
+	}
+	</script>
+	
+	
+	<!--Footer-->
+	<div class="footer">
+		<p>Created by Daniel Koerber and Nicholas Koerber: <a target="_blank" href="https://github.com/noobswestand">GitHub</a></p>
+	</div>
+</body>
+</html> 
